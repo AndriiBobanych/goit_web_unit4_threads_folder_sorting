@@ -35,7 +35,7 @@ def copy_file(path: Path) -> None:
     for el in path.iterdir():
         if el.is_file():
             extension = el.suffix
-            new_path = folder_to_save / extension
+            new_path = folder_to_save / extension[1:]
             try:
                 new_path.mkdir(exist_ok=True, parents=True)
                 copyfile(el, new_path / el.name)
